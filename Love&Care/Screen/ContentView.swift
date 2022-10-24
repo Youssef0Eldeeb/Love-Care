@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    //Properties
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
+    //Body
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+        
+        if isOnboarding{
+           Onboarding()
+        }else{
+            Home()
+        }
+        
+    }//: body
 }
 
 struct ContentView_Previews: PreviewProvider {

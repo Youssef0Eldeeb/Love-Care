@@ -13,6 +13,9 @@
 		A144AF562906B9A9007E4EDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A144AF552906B9A9007E4EDF /* Preview Assets.xcassets */; };
 		A144AF5E2906BAEC007E4EDF /* chimeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A144AF5C2906BAEC007E4EDF /* chimeup.mp3 */; };
 		A144AF5F2906BAEC007E4EDF /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A144AF5D2906BAEC007E4EDF /* success.m4a */; };
+		A144AF6529074847007E4EDF /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144AF6429074847007E4EDF /* Onboarding.swift */; };
+		A144AF6729074851007E4EDF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144AF6629074851007E4EDF /* Home.swift */; };
+		A144AF6929074F0C007E4EDF /* CircleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A144AF6829074F0C007E4EDF /* CircleGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		A144AF552906B9A9007E4EDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A144AF5C2906BAEC007E4EDF /* chimeup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chimeup.mp3; sourceTree = "<group>"; };
 		A144AF5D2906BAEC007E4EDF /* success.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.m4a; sourceTree = "<group>"; };
+		A144AF6429074847007E4EDF /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		A144AF6629074851007E4EDF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		A144AF6829074F0C007E4EDF /* CircleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,8 @@
 			children = (
 				A144AF4E2906B9A4007E4EDF /* Love_CareApp.swift */,
 				A144AF502906B9A4007E4EDF /* ContentView.swift */,
+				A144AF6429074847007E4EDF /* Onboarding.swift */,
+				A144AF6629074851007E4EDF /* Home.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -94,6 +102,7 @@
 		A144AF622906BC5C007E4EDF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A144AF6829074F0C007E4EDF /* CircleGroupView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -177,7 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A144AF6929074F0C007E4EDF /* CircleGroupView.swift in Sources */,
+				A144AF6529074847007E4EDF /* Onboarding.swift in Sources */,
 				A144AF512906B9A4007E4EDF /* ContentView.swift in Sources */,
+				A144AF6729074851007E4EDF /* Home.swift in Sources */,
 				A144AF4F2906B9A4007E4EDF /* Love_CareApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
