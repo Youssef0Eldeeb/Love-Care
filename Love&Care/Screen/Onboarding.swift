@@ -10,6 +10,7 @@ import SwiftUI
 struct Onboarding: View {
     //Properties
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    @State var isAnimating: Bool = false
     
     //Body
     var body: some View {
@@ -30,6 +31,8 @@ struct Onboarding: View {
                         .padding(.horizontal, 10)
                         .multilineTextAlignment(.center)
                 }//: VStack
+                .offset(y: isAnimating ? 0 : -50)
+                .animation(.easeOut(duration: 1), value: isAnimating)
                 Spacer()
                 // MARK: - Center
                 ZStack{
@@ -44,6 +47,7 @@ struct Onboarding: View {
                                 .foregroundColor(.white)
                             ,alignment: .bottom
                         )
+                        .frame(width: 350, alignment: .center)
                 }//: ZStack
                 Spacer()
                 // MARK: - Footer
@@ -82,7 +86,12 @@ struct Onboarding: View {
                 }//: ZStack
                 .frame(height: 80, alignment: .center)
                 .padding(.horizontal, 30)
+                .offset(y: isAnimating ? 0 : 50)
+                .animation(.easeOut(duration: 1), value: isAnimating)
             }
+        }//: ZStack
+        .onAppear {
+            isAnimating.toggle()
         }
     }
 }
