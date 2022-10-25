@@ -12,6 +12,8 @@ struct Onboarding: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
     @State var isAnimating: Bool = false
     @State var imageOffset : CGSize = CGSize(width: 0.0, height: 0.0)
+    @State var buttonOffset: CGFloat = 0.0
+    @State var buttonWidth: Double = UIScreen.main.bounds.width - 60
     
     //Body
     var body: some View {
@@ -21,7 +23,7 @@ struct Onboarding: View {
             VStack{
                 // MARK: - Header
                 VStack{
-                    Text("Care.")
+                    Text(abs(imageOffset.width) > 0 ? "Care." : "Love")
                         .font(.system(size: 60))
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
@@ -83,7 +85,7 @@ struct Onboarding: View {
                     HStack{
                         Capsule()
                             .fill(Color("ColorRed"))
-                            .frame(width: 80)
+                            .frame(width: 80 + buttonOffset)
                         Spacer()
                     }//: HStack
                     
@@ -99,6 +101,24 @@ struct Onboarding: View {
                                 .foregroundColor(.white)
                         }//: ZStack
                         .frame(width: 80, alignment: .center)
+                        .offset(x: buttonOffset)
+                        .gesture(DragGesture()
+                            .onChanged({ gesture in
+                                if (gesture.translation.width > 0.0) && (buttonOffset <= buttonWidth - 80){
+                                buttonOffset = gesture.translation.width
+                                }
+                            })
+                                .onEnded({ _ in
+                                    withAnimation(.easeOut(duration: 0.5)) {
+                                        if buttonOffset >= buttonWidth / 2{
+                                            isOnboarding = false
+                                        }else{
+                                            buttonOffset = 0.0
+                                        }
+                                    }
+                                })
+                        )
+                        
                         Spacer()
                     }//: HStack
                 }//: ZStack
