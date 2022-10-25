@@ -11,6 +11,7 @@ struct Home: View {
     //Properties
     @AppStorage("isOnboarding") var isOnboarding: Bool = false
     @State var isAnimatting: Bool = false
+    let feedback = UINotificationFeedbackGenerator()
     
     //Body
     var body: some View {
@@ -34,6 +35,8 @@ struct Home: View {
             
             Button {
                 isOnboarding.toggle()
+                playSound(soundFile: "success", soundType: "m4a")
+                feedback.notificationOccurred(.success)
             } label: {
                 Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                     .imageScale(.large)

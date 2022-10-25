@@ -14,6 +14,7 @@ struct Onboarding: View {
     @State var imageOffset : CGSize = CGSize(width: 0.0, height: 0.0)
     @State var buttonOffset: CGFloat = 0.0
     @State var buttonWidth: Double = UIScreen.main.bounds.width - 60
+    let feedback = UINotificationFeedbackGenerator()
     
     //Body
     var body: some View {
@@ -114,8 +115,11 @@ struct Onboarding: View {
                                     withAnimation(.easeOut(duration: 0.5)) {
                                         if buttonOffset >= buttonWidth / 2{
                                             isOnboarding = false
+                                            playSound(soundFile: "chimeup", soundType: "mp3")
+                                            feedback.notificationOccurred(.success)
                                         }else{
                                             buttonOffset = 0.0
+                                            feedback.notificationOccurred(.error)
                                         }
                                     }
                                 })
