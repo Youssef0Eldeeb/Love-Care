@@ -46,6 +46,8 @@ struct Onboarding: View {
                         .resizable()
                         .scaledToFit()
                         .shadow(color: .black.opacity(0.5), radius: 8, x: 5, y: 30)
+                        .scaleEffect(isAnimating ? 1 : 0.8)
+                        .animation(.easeOut(duration: 0.5), value: isAnimating)
                         .overlay(
                             Image(systemName: "arrow.left.and.right.circle")
                                 .font(.system(size: 40, weight: .ultraLight, design: .rounded))
