@@ -11,6 +11,7 @@ struct Onboarding: View {
     //Properties
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
     @State var isAnimating: Bool = false
+    @State var imageOffset : CGSize = CGSize(width: 0.0, height: 0.0)
     
     //Body
     var body: some View {
@@ -37,6 +38,8 @@ struct Onboarding: View {
                 // MARK: - Center
                 ZStack{
                     CircleGroupView(circleGroupColor: .white)
+                        .offset(x: imageOffset.width * -1)
+                        .blur(radius: abs(imageOffset.width)/5)
                     Image("happy-pregnant")
                         .resizable()
                         .scaledToFit()
@@ -45,9 +48,24 @@ struct Onboarding: View {
                             Image(systemName: "arrow.left.and.right.circle")
                                 .font(.system(size: 40, weight: .ultraLight, design: .rounded))
                                 .foregroundColor(.white)
+                                .opacity(abs(imageOffset.width)>0 ? 0 : 1)
                             ,alignment: .bottom
                         )
                         .frame(width: 350, alignment: .center)
+                        .offset(x: imageOffset.width, y: 0)
+                        .rotationEffect(.degrees(imageOffset.width / 15))
+                        .gesture(DragGesture()
+                            .onChanged({ gesture in
+                                if abs(gesture.translation.width) <= 150 {
+                                    imageOffset = gesture.translation
+                                }
+                            })
+                                .onEnded({ _ in
+                                    withAnimation {
+                                        imageOffset = .zero
+                                    }
+                                })
+                        )
                 }//: ZStack
                 Spacer()
                 // MARK: - Footer
